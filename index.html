@@ -1,3 +1,4 @@
+<!-- (c) 2026 Rahf Zemam — F1 Watch Club -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -122,14 +123,7 @@
     background: var(--surface2);
     padding: 9px 14px;
     border-bottom: 1px solid var(--border);
-  }
-
-  .sec-ltr {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    font-size: 20px;
-    color: var(--red);
-    min-width: 20px;
+    border-left: 3px solid var(--red);
   }
 
   .sec-title {
@@ -267,7 +261,6 @@
     animation: fadeUp 0.25s both;
   }
 
-  .modal-icon { font-size: 52px; margin-bottom: 10px; }
   .modal h2 {
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900; font-size: 30px; text-transform: uppercase;
@@ -320,7 +313,7 @@
   <header>
     <div class="badge">F1 Watch Club · 2026</div>
     <h1>Season<br><span>Predictions</span></h1>
-    <div class="sealed-notice">⚠ &nbsp;Do not open until the 2026 Abu Dhabi Grand Prix</div>
+    <div class="sealed-notice">Do not open until the 2026 Abu Dhabi Grand Prix</div>
   </header>
 
   <div class="progress-wrap">
@@ -328,9 +321,9 @@
     <div class="progress-label" id="pgLabel">0% complete</div>
   </div>
 
-  <!-- MEMBER INFO -->
+  <!-- member info -->
   <div class="section">
-    <div class="section-hd"><div class="sec-ltr">👤</div><div class="sec-title">Member Info</div></div>
+    <div class="section-hd"><div class="sec-title">Member Info</div></div>
     <div class="section-body">
       <div class="g2">
         <div class="field"><label>Your Name</label><input type="text" id="memberName" placeholder="Full name" data-track></div>
@@ -339,9 +332,9 @@
     </div>
   </div>
 
-  <!-- A: TEAMMATES -->
+  <!-- teammate battles -->
   <div class="section">
-    <div class="section-hd"><div class="sec-ltr">A</div><div class="sec-title">Teammate Battles — Who Scores More Points?</div></div>
+    <div class="section-hd"><div class="sec-title">Teammate Battles — Who Scores More Points?</div></div>
     <div class="section-body">
       <table class="tm-table">
         <thead><tr><th style="width:120px">Team</th><th>Your Pick</th></tr></thead>
@@ -350,24 +343,24 @@
     </div>
   </div>
 
-  <!-- B: CONSTRUCTORS -->
+  <!-- constructors -->
   <div class="section">
-    <div class="section-hd"><div class="sec-ltr">B</div><div class="sec-title">Constructors' Championship — Final Order</div></div>
+    <div class="section-hd"><div class="sec-title">Constructors' Championship — Final Order</div></div>
     <div class="section-body"><div class="c-grid" id="cGrid"></div></div>
   </div>
 
-  <!-- C + D -->
+  <!-- championship -->
   <div class="section">
-    <div class="section-hd"><div class="sec-ltr">C–D</div><div class="sec-title">Championship Predictions</div></div>
+    <div class="section-hd"><div class="sec-title">Championship Predictions</div></div>
     <div class="section-body">
       <div class="field">
-        <label>C — 2026 World Drivers' Champion</label>
+        <label>2026 World Drivers' Champion</label>
         <select id="wdc" data-track><option value="">Select driver…</option></select>
       </div>
       <div class="field" style="margin-top:14px">
-        <label>D — Season Type</label>
+        <label>Season Type</label>
         <div class="pills" id="seasonType">
-          <div class="pill" data-pill="seasonType">Tight like 2021</div>
+          <div class="pill" data-pill="seasonType">Tight like 2021 & 2025</div>
           <div class="pill" data-pill="seasonType">Dominant like 2023</div>
           <div class="pill" data-pill="seasonType">Chaotic & unpredictable</div>
           <div class="pill" data-pill="seasonType">Mid-season power shift</div>
@@ -376,65 +369,71 @@
     </div>
   </div>
 
-  <!-- E: FULL DRIVER ORDER -->
+  <!-- full driver order -->
   <div class="section">
-    <div class="section-hd"><div class="sec-ltr">E</div><div class="sec-title">Drivers' Championship — Full Final Order (1–22)</div></div>
+    <div class="section-hd"><div class="sec-title">Drivers' Championship — Full Final Order (1–22)</div></div>
     <div class="section-body"><div class="d-grid" id="dGrid"></div></div>
   </div>
 
-  <!-- F–I: STATS -->
+  <!-- season stats -->
   <div class="section">
-    <div class="section-hd"><div class="sec-ltr">F–I</div><div class="sec-title">Season Stats</div></div>
+    <div class="section-hd"><div class="sec-title">Season Stats</div></div>
     <div class="section-body">
       <div class="g2">
-        <div class="field"><label>F — Team with Most DNFs</label><select id="dnfTeam" data-track><option value="">Select team…</option></select></div>
-        <div class="field"><label>G — Driver with Most Overtakes</label><select id="overtakes" data-track><option value="">Select driver…</option></select></div>
-        <div class="field"><label>H — Teams Winning a Race</label><input type="text" id="teamsWin" placeholder="e.g. 3 teams" data-track></div>
-        <div class="field"><label>H — Teams Reaching Podium</label><input type="text" id="teamsPodium" placeholder="e.g. 5 teams" data-track></div>
-        <div class="field"><label>I — Shock Podium Driver (outside top 3 teams)</label><input type="text" id="shockDriver" placeholder="Driver name" data-track></div>
-        <div class="field"><label>I — Race (optional)</label><input type="text" id="shockRace" placeholder="Grand Prix name" data-track></div>
+        <div class="field"><label>Team with Most DNFs</label><select id="dnfTeam" data-track><option value="">Select team…</option></select></div>
+        <div class="field"><label>Driver with Most Overtakes</label><select id="overtakes" data-track><option value="">Select driver…</option></select></div>
+        <div class="field"><label>Teams Winning a Race</label><input type="text" id="teamsWin" placeholder="e.g. 3 teams" data-track></div>
+        <div class="field"><label>Teams Reaching Podium</label><input type="text" id="teamsPodium" placeholder="e.g. 5 teams" data-track></div>
+        <div class="field"><label>Shock Podium Driver (outside top 3 teams)</label><input type="text" id="shockDriver" placeholder="Driver name" data-track></div>
+        <div class="field"><label>Race (optional)</label><input type="text" id="shockRace" placeholder="Grand Prix name" data-track></div>
       </div>
     </div>
   </div>
 
-  <!-- J–M: DRIVERS TO WATCH -->
+  <!-- ones to watch -->
   <div class="section">
-    <div class="section-hd"><div class="sec-ltr">J–M</div><div class="sec-title">Drivers & Teams to Watch</div></div>
+    <div class="section-hd"><div class="sec-title">Ones to Watch</div></div>
     <div class="section-body">
       <div class="g2">
-        <div class="field"><label>J — Driver of the Year (≠ necessarily WDC)</label><select id="doty" data-track><option value="">Select driver…</option></select></div>
-        <div class="field"><label>K — Most Intense Teammate Battle</label><select id="tmBattle" data-track><option value="">Select team…</option></select></div>
-        <div class="field"><label>L — Driver Creating Most Off-Track Headlines</label><select id="headlines" data-track><option value="">Select driver…</option></select></div>
-        <div class="field"><label>M — New Regs Wildcard — Team That Nailed 2026 Rules</label><select id="regsWinner" data-track><option value="">Select team…</option></select></div>
+        <div class="field"><label>Driver of the Year (not necessarily WDC)</label><select id="doty" data-track><option value="">Select driver…</option></select></div>
+        <div class="field"><label>Most Intense Teammate Battle</label><select id="tmBattle" data-track><option value="">Select team…</option></select></div>
+        <div class="field"><label>Driver Creating Most Off-Track Headlines</label><select id="headlines" data-track><option value="">Select driver…</option></select></div>
+        <div class="field"><label>Team That Nailed the 2026 Regs</label><select id="regsWinner" data-track><option value="">Select team…</option></select></div>
       </div>
     </div>
   </div>
 
-  <!-- N–P: RACE PICKS -->
+  <!-- iconic race winners -->
   <div class="section">
-    <div class="section-hd"><div class="sec-ltr">N–P</div><div class="sec-title">Race Winners</div></div>
+    <div class="section-hd"><div class="sec-title">Iconic Race Winners — Who Wins Their Home Race?</div></div>
     <div class="section-body">
       <div class="g3">
-        <div class="field"><label>N — Australia (Race 1)</label><select id="australia" data-track><option value="">Driver…</option></select></div>
-        <div class="field"><label>O — Monaco</label><select id="monaco" data-track><option value="">Driver…</option></select></div>
-        <div class="field"><label>P — Abu Dhabi (Final)</label><select id="abudhabi" data-track><option value="">Driver…</option></select></div>
+        <div class="field"><label>Silverstone</label><select id="silverstone" data-track><option value="">Driver…</option></select></div>
+        <div class="field"><label>Monaco</label><select id="monaco" data-track><option value="">Driver…</option></select></div>
+        <div class="field"><label>Singapore</label><select id="singapore" data-track><option value="">Driver…</option></select></div>
+      </div>
+
+      <div style="margin-top:16px; border-top:1px solid var(--border); padding-top:14px;">
+        <label style="display:block; font-size:10px; letter-spacing:1px; text-transform:uppercase; color:var(--muted); margin-bottom:10px;">Your Pick — Add Up to 3 More Races</label>
+        <div id="customRaces"></div>
+        <button type="button" id="addRaceBtn" onclick="addCustomRace()" style="margin-top:8px; background:transparent; border:1px dashed var(--border); color:var(--muted); font-family:'Barlow',sans-serif; font-size:12px; padding:6px 14px; border-radius:3px; cursor:pointer;">+ add a race</button>
       </div>
     </div>
   </div>
 
-  <!-- Q–T: STORYLINES -->
+  <!-- storylines -->
   <div class="section">
-    <div class="section-hd"><div class="sec-ltr">Q–T</div><div class="sec-title">Storylines</div></div>
+    <div class="section-hd"><div class="sec-title">Storylines</div></div>
     <div class="section-body">
       <div class="g2">
-        <div class="field"><label>Q — Biggest Surprise (team or driver)</label><input type="text" id="surprise" placeholder="Who will shock us?" data-track></div>
-        <div class="field"><label>R — Biggest Disappointment</label><input type="text" id="disappointment" placeholder="Who will flop?" data-track></div>
-        <div class="field"><label>S — First Grand Prix Win — Any New Winners?</label><select id="firstWin" data-track><option value="">Driver or 'None'…</option><option>None</option></select></div>
-        <div class="field"><label>T — Unluckiest Driver</label><select id="unlucky" data-track><option value="">Select driver…</option></select></div>
+        <div class="field"><label>Biggest Surprise (team or driver)</label><input type="text" id="surprise" placeholder="Who will shock us?" data-track></div>
+        <div class="field"><label>Biggest Disappointment</label><input type="text" id="disappointment" placeholder="Who will flop?" data-track></div>
+        <div class="field"><label>First Grand Prix Win — Any New Winners?</label><select id="firstWin" data-track><option value="">Driver or 'None'…</option><option>None</option></select></div>
+        <div class="field"><label>Unluckiest Driver</label><select id="unlucky" data-track><option value="">Select driver…</option></select></div>
       </div>
 
       <div class="field" style="margin-top:14px">
-        <label>U — Rookie Watch: Lindblad (Racing Bulls)</label>
+        <label>Rookie Watch: Lindblad (Racing Bulls)</label>
         <div class="pills" id="rookieWatch">
           <div class="pill" data-pill="rookieWatch">Points scorer</div>
           <div class="pill" data-pill="rookieWatch">Outqualifies Lawson</div>
@@ -445,7 +444,7 @@
       </div>
 
       <div class="field" style="margin-top:14px">
-        <label>V — Hamilton at Ferrari</label>
+        <label>Hamilton at Ferrari</label>
         <div class="pills" id="hamiltonFerrari">
           <div class="pill" data-pill="hamiltonFerrari">WDC contender</div>
           <div class="pill" data-pill="hamiltonFerrari">Podium regular</div>
@@ -457,34 +456,34 @@
     </div>
   </div>
 
-  <!-- W–Z: BOLD CALLS -->
+  <!-- bold calls -->
   <div class="section">
-    <div class="section-hd"><div class="sec-ltr">W–Z</div><div class="sec-title">Bold Calls</div></div>
+    <div class="section-hd"><div class="sec-title">Bold Calls</div></div>
     <div class="section-body">
       <div class="g2">
         <div class="field">
-          <label>W — Audi vs Cadillac: Which Finishes Higher?</label>
+          <label>Audi vs Cadillac — Which Finishes Higher?</label>
           <div class="pills" id="newTeams">
             <div class="pill" data-pill="newTeams">Audi</div>
             <div class="pill" data-pill="newTeams">Cadillac</div>
             <div class="pill" data-pill="newTeams">Too close to call</div>
           </div>
         </div>
-        <div class="field"><label>W — Best finish for either new team</label><input type="text" id="newTeamFinish" placeholder="e.g. P9 at Monza" data-track></div>
-        <div class="field"><label>X — Best Race to Watch</label><input type="text" id="bestRace" placeholder="Grand Prix name" data-track></div>
-        <div class="field"><label>X — Worst Race to Watch</label><input type="text" id="worstRace" placeholder="Grand Prix name" data-track></div>
-        <div class="field"><label>Y — 2027 Silly Season Prediction</label><input type="text" id="silly" placeholder="e.g. Verstappen to Mercedes" data-track></div>
+        <div class="field"><label>Best finish for either new team</label><input type="text" id="newTeamFinish" placeholder="e.g. P9 at Monza" data-track></div>
+        <div class="field"><label>Best Race to Watch</label><input type="text" id="bestRace" placeholder="Grand Prix name" data-track></div>
+        <div class="field"><label>Worst Race to Watch</label><input type="text" id="worstRace" placeholder="Grand Prix name" data-track></div>
+        <div class="field"><label>2027 Silly Season Prediction</label><input type="text" id="silly" placeholder="e.g. Verstappen to Mercedes" data-track></div>
       </div>
       <div class="field" style="margin-top:12px">
-        <label>Z — Your Boldest Prediction for 2026 (bragging rights on the line)</label>
-        <textarea id="bold" rows="3" placeholder="No limits — go wild…" data-track></textarea>
+        <label>Boldest Prediction for 2026</label>
+        <textarea id="bold" rows="3" placeholder="No limits — bragging rights on the line at Abu Dhabi" data-track></textarea>
       </div>
     </div>
   </div>
 
   <div class="bottom-bar">
-    <button class="btn-seal" id="sealBtn" onclick="sealPredictions()">🏁 &nbsp;Seal My Predictions</button>
-    <div class="seal-note">Clicking seal will generate a PDF for you to save — your answers live in that file, so don't lose it! Bring it (unopened) to the Abu Dhabi watch party.</div>
+    <button class="btn-seal" id="sealBtn" onclick="sealPredictions()">Seal My Predictions</button>
+    <div class="seal-note">Clicking seal downloads a PDF — save it to your phone notes or files and don't open it until Abu Dhabi.</div>
   </div>
 
 </div>
@@ -492,11 +491,10 @@
 <!-- MODAL -->
 <div class="modal-bg" id="modalBg">
   <div class="modal">
-    <div class="modal-icon">🏁</div>
     <h2>Predictions Sealed!</h2>
-    <p>Your PDF is downloading now. Save it somewhere safe and <strong>don't peek</strong> until the Abu Dhabi Grand Prix. See you at the finale!</p>
+    <p>Your PDF is downloading now. Save it to your phone notes or files and <strong>lock it</strong> — don't open it until Abu Dhabi.</p>
     <div class="modal-actions">
-      <button class="btn-pdf" onclick="downloadPDF()">⬇ &nbsp;Download PDF Again</button>
+      <button class="btn-pdf" onclick="downloadPDF()">Download PDF Again</button>
       <button class="btn-new" onclick="resetForm()">New Submission</button>
     </div>
   </div>
@@ -504,6 +502,7 @@
 
 <script>
 // ─── DATA ───────────────────────────────────────────────────────────────────
+//this section for data
 const DRIVERS = [
   { n: "Lando Norris",      t: "McLaren",       c: "c-mcl" },
   { n: "Oscar Piastri",     t: "McLaren",       c: "c-mcl" },
@@ -548,7 +547,7 @@ const PAIRS = [
 const PILL_GROUPS = ["seasonType","rookieWatch","hamiltonFerrari","newTeams"];
 const pillState = {};
 
-// ─── BUILD UI ────────────────────────────────────────────────────────────────
+//this section for building the ui
 function buildTeammates() {
   const body = document.getElementById('tmBody');
   PAIRS.forEach((p, i) => {
@@ -606,7 +605,7 @@ function buildDriverOrder() {
 }
 
 function populateSelects() {
-  const driverSels = ['wdc','overtakes','doty','headlines','australia','monaco','abudhabi','firstWin','unlucky'];
+  const driverSels = ['wdc','overtakes','doty','headlines','silverstone','monaco','singapore','firstWin','unlucky'];
   const dOpts = DRIVERS.map(d=>`<option value="${d.n}">${d.n} (${d.t})</option>`).join('');
   driverSels.forEach(id => {
     const el = document.getElementById(id);
@@ -632,7 +631,24 @@ function initPills() {
   });
 }
 
-// ─── PROGRESS ────────────────────────────────────────────────────────────────
+//this section for custom race picks
+let customRaceCount = 0;
+const driverOptsHtml = () => DRIVERS.map(d=>`<option value="${d.n}">${d.n}</option>`).join('');
+
+function addCustomRace() {
+  if (customRaceCount >= 3) return;
+  const i = customRaceCount++;
+  const wrap = document.createElement('div');
+  wrap.className = 'g2';
+  wrap.style.marginBottom = '8px';
+  wrap.id = `cr${i}`;
+  wrap.innerHTML = `
+    <div class="field"><label>Race ${i+1}</label><input type="text" id="crName${i}" placeholder="e.g. Japanese GP" data-track></div>
+    <div class="field"><label>Winner Pick</label><select id="crPick${i}" data-track><option value="">Driver…</option>${driverOptsHtml()}</select></div>`;
+  document.getElementById('customRaces').appendChild(wrap);
+  if (customRaceCount >= 3) document.getElementById('addRaceBtn').style.display = 'none';
+  updateProgress();
+}
 function updateProgress() {
   const tracked = document.querySelectorAll('[data-track]');
   let filled = 0;
@@ -648,7 +664,7 @@ function updateProgress() {
 document.addEventListener('change', updateProgress);
 document.addEventListener('input', updateProgress);
 
-// ─── COLLECT DATA ────────────────────────────────────────────────────────────
+//this section for collecting form data
 function val(id) {
   const el = document.getElementById(id);
   return el ? (el.value || '—') : '—';
@@ -672,7 +688,7 @@ function collectData() {
     shockDriver: val('shockDriver'), shockRace: val('shockRace'),
     doty: val('doty'), tmBattle: val('tmBattle'),
     headlines: val('headlines'), regsWinner: val('regsWinner'),
-    australia: val('australia'), monaco: val('monaco'), abudhabi: val('abudhabi'),
+    silverstone: val('silverstone'), monaco: val('monaco'), singapore: val('singapore'),
     surprise: val('surprise'), disappointment: val('disappointment'),
     firstWin: val('firstWin'), unlucky: val('unlucky'),
     rookieWatch: pillState['rookieWatch'] || '—',
@@ -681,10 +697,13 @@ function collectData() {
     newTeamFinish: val('newTeamFinish'),
     bestRace: val('bestRace'), worstRace: val('worstRace'),
     silly: val('silly'), bold: val('bold'),
+    customRaces: Array.from({length: customRaceCount}, (_,i) => ({
+      name: val(`crName${i}`), pick: val(`crPick${i}`)
+    })).filter(r => r.name !== '—'),
   };
 }
 
-// ─── PDF GENERATION ──────────────────────────────────────────────────────────
+//this section for pdf gen
 let lastData = null;
 
 function sealPredictions() {
@@ -709,14 +728,12 @@ function generatePDF(data) {
   const GOLD = [201, 162, 39];
   const DARK = [20, 20, 20];
   const MID = [100, 100, 100];
-  const LIGHT = [240, 240, 240];
   const BG2 = [245, 245, 245];
   const colW = (W - ML - MR);
 
   function newPage() {
     doc.addPage();
     y = MT;
-    // subtle header line
     doc.setDrawColor(...RED);
     doc.setLineWidth(0.4);
     doc.line(ML, 8, W - MR, 8);
@@ -804,8 +821,7 @@ function generatePDF(data) {
     y += 6;
   }
 
-  // ── COVER ──
-  // Header bar
+  //header
   doc.setFillColor(...RED);
   doc.rect(0, 0, W, 22, 'F');
 
@@ -816,11 +832,11 @@ function generatePDF(data) {
 
   doc.setFontSize(7.5);
   doc.setFont('helvetica','normal');
-  doc.text('F1 Watch Club  ·  Sealed until the Abu Dhabi Grand Prix', ML, 19);
+  doc.text('F1 Watch Club · Sealed until the Abu Dhabi Grand Prix', ML, 19);
 
   y = 28;
 
-  // Gold warning box
+  //warning box
   doc.setFillColor(201, 162, 39, 0.15);
   doc.setFillColor(252, 248, 235);
   doc.setDrawColor(...GOLD);
@@ -829,10 +845,10 @@ function generatePDF(data) {
   doc.setFont('helvetica','bold');
   doc.setFontSize(8);
   doc.setTextColor(...GOLD);
-  doc.text('⚠  DO NOT OPEN UNTIL THE 2026 ABU DHABI GRAND PRIX  ⚠', W/2, y + 6.5, { align: 'center' });
+  doc.text('DO NOT OPEN UNTIL THE 2026 ABU DHABI GRAND PRIX', W/2, y + 6.5, { align: 'center' });
   y += 14;
 
-  // Member info box
+  //member info box
   doc.setFillColor(...BG2);
   doc.setDrawColor(220,220,220);
   doc.setLineWidth(0.3);
@@ -855,32 +871,27 @@ function generatePDF(data) {
   doc.text(data.date, ML + 30, y + 10);
   y += 16;
 
-  // ── SECTION A: Teammates ──
   sectionHead('A', 'Teammate Battles');
   const tmPairs = data.teammates.map((t,i) => [`${i+1}. ${t.team}:`, t.pick]);
   twoColRows(tmPairs);
   y += 2;
 
-  // ── SECTION B: Constructors ──
-  sectionHead('B', "Constructors' Championship");
+  sectionHead('B', "Constructors Championship");
   const cPairs = data.constructors.map((t,i) => [`${i+1}${['st','nd','rd'][i]||'th'}:`, t]);
   twoColRows(cPairs);
   y += 2;
 
-  // ── C & D ──
-  sectionHead('C–D', 'Championship Predictions');
-  row('C. World Drivers\' Champion:', data.wdc);
+  sectionHead('C-D', 'Championship Predictions');
+  row("C. World Drivers' Champion:", data.wdc);
   row('D. Season type:', data.seasonType);
   y += 2;
 
-  // ── E: Driver Order ──
-  sectionHead('E', "Drivers' Championship — Full Order");
+  sectionHead('E', "Drivers Championship - Full Order");
   const dPairs = data.driverOrder.map((d,i) => [`${i+1}.`, d]);
   twoColRows(dPairs);
   y += 2;
 
-  // ── F–I ──
-  sectionHead('F–I', 'Season Stats');
+  sectionHead('F-I', 'Season Stats');
   row('F. Most DNFs:', data.dnfTeam);
   row('G. Most overtakes:', data.overtakes);
   row('H. Teams winning races:', data.teamsWin);
@@ -888,31 +899,30 @@ function generatePDF(data) {
   row('I. Shock podium driver:', data.shockDriver + (data.shockRace !== '—' ? ' · ' + data.shockRace : ''));
   y += 2;
 
-  // ── J–M ──
-  sectionHead('J–M', 'Drivers & Teams to Watch');
+  sectionHead('J-M', 'Drivers & Teams to Watch');
   row('J. Driver of the Year:', data.doty);
   row('K. Toughest teammate battle:', data.tmBattle);
   row('L. Most off-track headlines:', data.headlines);
   row('M. New regs wildcard team:', data.regsWinner);
   y += 2;
 
-  // ── N–P ──
-  sectionHead('N–P', 'Race Winners');
-  row('N. Australia (Race 1):', data.australia);
+  sectionHead('N-P', 'Iconic Race Winners');
+  row('N. Silverstone:', data.silverstone);
   row('O. Monaco:', data.monaco);
-  row('P. Abu Dhabi (Final):', data.abudhabi);
+  row('P. Singapore:', data.singapore);
+  if (data.customRaces && data.customRaces.length) {
+    data.customRaces.forEach(r => row(r.name + ':', r.pick));
+  }
   y += 2;
 
-  // ── Q–T ──
-  sectionHead('Q–T', 'Storylines');
+  sectionHead('Q-T', 'Storylines');
   row('Q. Biggest surprise:', data.surprise);
   row('R. Biggest disappointment:', data.disappointment);
   row('S. First GP win:', data.firstWin);
   row('T. Unluckiest driver:', data.unlucky);
   y += 2;
 
-  // ── U–V: Pills ──
-  sectionHead('U–V', 'Driver Watch');
+  sectionHead('U-V', 'Driver Watch');
   doc.setFont('helvetica','normal');
   doc.setFontSize(7.5);
   doc.setTextColor(...MID);
@@ -922,18 +932,17 @@ function generatePDF(data) {
   pill(data.hamiltonFerrari);
   y += 2;
 
-  // ── W–Z ──
-  sectionHead('W–Z', 'Bold Calls');
-  row('W. Higher-placed new team:', data.newTeams + (data.newTeamFinish !== '—' ? ' · Best: ' + data.newTeamFinish : ''));
+  sectionHead('W-Z', 'Bold Calls');
+  row('W. Higher-placed new team:', data.newTeams + (data.newTeamFinish !== '—' ? ' · ' + data.newTeamFinish : ''));
   row('X. Best race:', data.bestRace);
   row('X. Worst race:', data.worstRace);
-  row('Y. 2027 silly season call:', data.silly);
+  row('Y. 2027 silly season:', data.silly);
 
   checkY(12);
   doc.setFont('helvetica','normal');
   doc.setFontSize(7.5);
   doc.setTextColor(...MID);
-  doc.text('Z. Boldest Prediction:', ML + 2, y);
+  doc.text('Z. Bold prediction:', ML + 2, y);
   y += 5;
   doc.setFont('helvetica','bold');
   doc.setFontSize(8);
@@ -941,14 +950,14 @@ function generatePDF(data) {
   const boldLines = doc.splitTextToSize(data.bold, colW - 6);
   boldLines.forEach(line => { checkY(5); doc.text(line, ML + 4, y); y += 5; });
 
-  // Footer on all pages
+  //footer
   const totalPages = doc.internal.getNumberOfPages();
   for (let i = 1; i <= totalPages; i++) {
     doc.setPage(i);
     doc.setDrawColor(...RED);
     doc.setLineWidth(0.4);
     doc.line(ML, H - 10, W - MR, H - 10);
-    doc.setFont('helvetica', 'normal');
+    doc.setFont('helvetica','normal');
     doc.setFontSize(6.5);
     doc.setTextColor(...MID);
     doc.text(`${data.name} · 2026 F1 Predictions · DO NOT OPEN UNTIL ABU DHABI`, ML, H - 6);
@@ -961,11 +970,10 @@ function generatePDF(data) {
 
 function resetForm() {
   document.getElementById('modalBg').classList.remove('show');
-  // reload page
   window.location.reload();
 }
 
-// ─── INIT ────────────────────────────────────────────────────────────────────
+//init
 buildTeammates();
 buildConstructors();
 buildDriverOrder();

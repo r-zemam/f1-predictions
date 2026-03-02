@@ -1,319 +1,326 @@
-<!-- (c) 2026 Rahf Zemam - Formula Watch Club -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2026 F1 Season Predictions</title>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <style>
-    :root {
-      --red: #E8002D;
-      --gold: #C9A227;
-      --bg: #0a0a0a;
-      --surface: #131313;
-      --surface2: #1c1c1c;
-      --border: #2a2a2a;
-      --text: #f0f0f0;
-      --muted: #666;
-      --input-bg: #161616;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 F1 Season Predictions</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  :root {
+    --red: #E8002D;
+    --gold: #C9A227;
+    --bg: #0a0a0a;
+    --surface: #131313;
+    --surface2: #1c1c1c;
+    --border: #2a2a2a;
+    --text: #f0f0f0;
+    --muted: #666;
+    --input-bg: #161616;
+  }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      font-family: 'Barlow', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-    }
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
 
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: repeating-linear-gradient(-65deg, transparent, transparent 120px, rgba(232,0,45,0.018) 120px, rgba(232,0,45,0.018) 121px);
-      pointer-events: none;
-      z-index: 0;
-    }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(-65deg, transparent, transparent 120px, rgba(232,0,45,0.018) 120px, rgba(232,0,45,0.018) 121px);
+    pointer-events: none;
+    z-index: 0;
+  }
 
-    .container { max-width: 860px; margin: 0 auto; padding: 0 20px 80px; position: relative; z-index: 1; }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 20px 80px; position: relative; z-index: 1; }
 
-    /* HEADER */
-    header { padding: 44px 0 28px; text-align: center; }
+  /* HEADER */
+  header { padding: 44px 0 28px; text-align: center; }
 
-    .badge {
-      display: inline-block;
-      background: var(--red);
-      color: #fff;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 10px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      padding: 4px 16px;
-      margin-bottom: 14px;
-      clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
-    }
+  .badge {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    padding: 4px 16px;
+    margin-bottom: 14px;
+    clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  }
 
-    h1 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: clamp(38px, 9vw, 68px);
-      line-height: 0.88;
-      letter-spacing: -1px;
-      color: #fff;
-      text-transform: uppercase;
-    }
+  h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(38px, 9vw, 68px);
+    line-height: 0.88;
+    letter-spacing: -1px;
+    color: #fff;
+    text-transform: uppercase;
+  }
 
-    h1 span { color: var(--red); }
+  h1 span { color: var(--red); }
 
-    .sealed-notice {
-      margin: 18px auto 0;
-      max-width: 480px;
-      border: 1px solid rgba(201,162,39,0.35);
-      background: rgba(201,162,39,0.05);
-      border-radius: 3px;
-      padding: 10px 18px;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 600;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
+  .sealed-notice {
+    margin: 18px auto 0;
+    max-width: 480px;
+    border: 1px solid rgba(201,162,39,0.35);
+    background: rgba(201,162,39,0.05);
+    border-radius: 3px;
+    padding: 10px 18px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
 
-    /* PROGRESS */
-    .progress-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(10,10,10,0.95);
-      backdrop-filter: blur(8px);
-      padding: 8px 0;
-      border-bottom: 1px solid var(--border);
-    }
+  /* PROGRESS */
+  .progress-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(8px);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
 
-    .progress-track { height: 2px; background: var(--border); border-radius: 2px; overflow: hidden; }
-    .progress-fill { height: 100%; background: var(--red); width: 0%; transition: width 0.3s ease; }
-    .progress-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-align: right;
-      margin-top: 5px;
-    }
+  .progress-track { height: 2px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--red); width: 0%; transition: width 0.3s ease; }
+  .progress-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: right;
+    margin-top: 5px;
+  }
 
-    /* SECTIONS */
-    .section {
-      margin-top: 20px;
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      overflow: hidden;
-      animation: fadeUp 0.35s both;
-    }
+  /* SECTIONS */
+  .section {
+    margin-top: 20px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    overflow: hidden;
+    animation: fadeUp 0.35s both;
+  }
 
-    .section-hd {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: var(--surface2);
-      padding: 9px 14px;
-      border-bottom: 1px solid var(--border);
-      border-left: 3px solid var(--red);
-    }
+  .section-hd {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface2);
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+  }
 
-    .sec-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 13px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #ccc;
-    }
+  .sec-ltr {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    color: var(--red);
+    min-width: 20px;
+  }
 
-    .section-body { background: var(--surface); padding: 14px; }
+  .sec-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #ccc;
+  }
 
-    /* FIELDS */
-    .field { margin-bottom: 12px; }
-    .field:last-child { margin-bottom: 0; }
+  .section-body { background: var(--surface); padding: 14px; }
 
-    label {
-      display: block;
-      font-size: 10px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
+  /* FIELDS */
+  .field { margin-bottom: 12px; }
+  .field:last-child { margin-bottom: 0; }
 
-    input[type="text"], select, textarea {
-      width: 100%;
-      background: var(--input-bg);
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      color: var(--text);
-      font-family: 'Barlow', sans-serif;
-      font-size: 14px;
-      padding: 7px 10px;
-      outline: none;
-      transition: border-color 0.15s, box-shadow 0.15s;
-      -webkit-appearance: none;
-    }
+  label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
 
-    input[type="text"]:focus, select:focus, textarea:focus {
-      border-color: var(--red);
-      box-shadow: 0 0 0 2px rgba(232,0,45,0.1);
-    }
+  input[type="text"], select, textarea {
+    width: 100%;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    padding: 7px 10px;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    -webkit-appearance: none;
+  }
 
-    select option { background: #1a1a1a; }
-    textarea { resize: vertical; }
+  input[type="text"]:focus, select:focus, textarea:focus {
+    border-color: var(--red);
+    box-shadow: 0 0 0 2px rgba(232,0,45,0.1);
+  }
 
-    .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  select option { background: #1a1a1a; }
+  textarea { resize: vertical; }
 
-    /* TEAMMATE TOGGLE */
-    .tm-table { width: 100%; border-collapse: collapse; }
-    .tm-table th {
-      font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
-      color: var(--muted); text-align: left; padding: 3px 8px 8px;
-      border-bottom: 1px solid var(--border);
-    }
-    .tm-table td { padding: 5px 8px; border-bottom: 1px solid rgba(255,255,255,0.03); vertical-align: middle; }
-    .tm-table tr:last-child td { border-bottom: none; }
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
 
-    .tm-name { font-weight: 600; font-size: 13px; white-space: nowrap; }
+  /* TEAMMATE TOGGLE */
+  .tm-table { width: 100%; border-collapse: collapse; }
+  .tm-table th {
+    font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--muted); text-align: left; padding: 3px 8px 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tm-table td { padding: 5px 8px; border-bottom: 1px solid rgba(255,255,255,0.03); vertical-align: middle; }
+  .tm-table tr:last-child td { border-bottom: none; }
 
-    .drv-toggle { display: flex; gap: 6px; }
-    .drv-btn {
-      flex: 1; padding: 5px 8px;
-      border: 1px solid var(--border); border-radius: 3px;
-      background: var(--input-bg); color: var(--muted);
-      font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 500;
-      cursor: pointer; transition: all 0.12s; text-align: center;
-    }
-    .drv-btn:hover { border-color: #444; color: #ccc; }
-    .drv-btn.on { background: var(--red); border-color: var(--red); color: #fff; font-weight: 600; }
+  .tm-name { font-weight: 600; font-size: 13px; white-space: nowrap; }
 
-    /* CONSTRUCTORS */
-    .c-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
-    .pos-row { display: flex; align-items: center; gap: 8px; }
-    .pos-n {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700; font-size: 15px; color: var(--red); min-width: 24px; text-align: right;
-    }
+  .drv-toggle { display: flex; gap: 6px; }
+  .drv-btn {
+    flex: 1; padding: 5px 8px;
+    border: 1px solid var(--border); border-radius: 3px;
+    background: var(--input-bg); color: var(--muted);
+    font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 500;
+    cursor: pointer; transition: all 0.12s; text-align: center;
+  }
+  .drv-btn:hover { border-color: #444; color: #ccc; }
+  .drv-btn.on { background: var(--red); border-color: var(--red); color: #fff; font-weight: 600; }
 
-    /* DRIVERS GRID */
-    .d-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+  /* CONSTRUCTORS */
+  .c-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+  .pos-row { display: flex; align-items: center; gap: 8px; }
+  .pos-n {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 15px; color: var(--red); min-width: 24px; text-align: right;
+  }
 
-    /* PILLS */
-    .pills { display: flex; flex-wrap: wrap; gap: 7px; }
-    .pill {
-      padding: 5px 13px;
-      border: 1px solid var(--border); border-radius: 20px;
-      background: var(--input-bg); color: var(--muted);
-      font-size: 12px; cursor: pointer; transition: all 0.12s; user-select: none;
-    }
-    .pill:hover { border-color: #444; color: #bbb; }
-    .pill.on { background: var(--red); border-color: var(--red); color: #fff; font-weight: 600; }
+  /* DRIVERS GRID */
+  .d-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
 
-    /* BOTTOM BAR */
-    .bottom-bar {
-      margin-top: 36px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-    }
+  /* PILLS */
+  .pills { display: flex; flex-wrap: wrap; gap: 7px; }
+  .pill {
+    padding: 5px 13px;
+    border: 1px solid var(--border); border-radius: 20px;
+    background: var(--input-bg); color: var(--muted);
+    font-size: 12px; cursor: pointer; transition: all 0.12s; user-select: none;
+  }
+  .pill:hover { border-color: #444; color: #bbb; }
+  .pill.on { background: var(--red); border-color: var(--red); color: #fff; font-weight: 600; }
 
-    .btn-seal {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900; font-size: 18px; letter-spacing: 3px; text-transform: uppercase;
-      padding: 15px 52px;
-      background: var(--red); color: #fff;
-      border: none; border-radius: 4px; cursor: pointer;
-      clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
-      transition: background 0.15s, transform 0.1s;
-    }
-    .btn-seal:hover { background: #c5001f; transform: scale(1.02); }
-    .btn-seal:active { transform: scale(0.98); }
-    .btn-seal:disabled { background: #444; cursor: not-allowed; transform: none; }
+  /* BOTTOM BAR */
+  .bottom-bar {
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
 
-    .seal-note { font-size: 12px; color: var(--muted); text-align: center; max-width: 400px; }
+  .btn-seal {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: 18px; letter-spacing: 3px; text-transform: uppercase;
+    padding: 15px 52px;
+    background: var(--red); color: #fff;
+    border: none; border-radius: 4px; cursor: pointer;
+    clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+    transition: background 0.15s, transform 0.1s;
+  }
+  .btn-seal:hover { background: #c5001f; transform: scale(1.02); }
+  .btn-seal:active { transform: scale(0.98); }
+  .btn-seal:disabled { background: #444; cursor: not-allowed; transform: none; }
 
-    /* MODAL */
-    .modal-bg {
-      display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,0.88); z-index: 100;
-      align-items: center; justify-content: center;
-    }
-    .modal-bg.show { display: flex; }
+  .seal-note { font-size: 12px; color: var(--muted); text-align: center; max-width: 400px; }
 
-    .modal {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-top: 3px solid var(--red);
-      border-radius: 8px; padding: 36px 40px;
-      text-align: center; max-width: 420px; width: 90%;
-      animation: fadeUp 0.25s both;
-    }
+  /* MODAL */
+  .modal-bg {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.88); z-index: 100;
+    align-items: center; justify-content: center;
+  }
+  .modal-bg.show { display: flex; }
 
-    .modal h2 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900; font-size: 30px; text-transform: uppercase;
-      color: var(--red); margin-bottom: 8px;
-    }
-    .modal p { color: #999; font-size: 14px; line-height: 1.6; margin-bottom: 20px; }
+  .modal {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--red);
+    border-radius: 8px; padding: 36px 40px;
+    text-align: center; max-width: 420px; width: 90%;
+    animation: fadeUp 0.25s both;
+  }
 
-    .modal-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .modal-icon { font-size: 52px; margin-bottom: 10px; }
+  .modal h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: 30px; text-transform: uppercase;
+    color: var(--red); margin-bottom: 8px;
+  }
+  .modal p { color: #999; font-size: 14px; line-height: 1.6; margin-bottom: 20px; }
 
-    .btn-pdf {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700; font-size: 15px; letter-spacing: 2px; text-transform: uppercase;
-      padding: 11px 28px;
-      background: var(--red); color: #fff;
-      border: none; border-radius: 4px; cursor: pointer;
-      transition: background 0.15s;
-    }
-    .btn-pdf:hover { background: #c5001f; }
+  .modal-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 
-    .btn-new {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 600; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 11px 22px;
-      background: transparent; color: var(--muted);
-      border: 1px solid var(--border); border-radius: 4px; cursor: pointer;
-      transition: all 0.15s;
-    }
-    .btn-new:hover { border-color: #555; color: #bbb; }
+  .btn-pdf {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 15px; letter-spacing: 2px; text-transform: uppercase;
+    padding: 11px 28px;
+    background: var(--red); color: #fff;
+    border: none; border-radius: 4px; cursor: pointer;
+    transition: background 0.15s;
+  }
+  .btn-pdf:hover { background: #c5001f; }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(14px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+  .btn-new {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 11px 22px;
+    background: transparent; color: var(--muted);
+    border: 1px solid var(--border); border-radius: 4px; cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-new:hover { border-color: #555; color: #bbb; }
 
-    /* Team colors */
-    .c-mcl { color: #FF8000; } .c-rbl { color: #3671C6; } .c-fer { color: #E8002D; }
-    .c-mer { color: #27F4D2; } .c-ast { color: #358C75; } .c-alp { color: #0093CC; }
-    .c-wil { color: #64C4FF; } .c-rb  { color: #6692FF; } .c-has { color: #B6BABD; }
-    .c-aud { color: #999; }    .c-cad { color: #ddd; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-    @media (max-width: 580px) {
-      .g2, .g3, .c-grid, .d-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  /* Team colors */
+  .c-mcl { color: #FF8000; } .c-rbl { color: #3671C6; } .c-fer { color: #E8002D; }
+  .c-mer { color: #27F4D2; } .c-ast { color: #358C75; } .c-alp { color: #0093CC; }
+  .c-wil { color: #64C4FF; } .c-rb  { color: #6692FF; } .c-has { color: #B6BABD; }
+  .c-aud { color: #999; }    .c-cad { color: #ddd; }
+
+  @media (max-width: 580px) {
+    .g2, .g3, .c-grid, .d-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
 <div class="container">
 
   <header>
-    <div class="badge">Formula Watch Club @ George Mason University - 2026</div>
+    <div class="badge">F1 Watch Club · 2026</div>
     <h1>Season<br><span>Predictions</span></h1>
-    <div class="sealed-notice">Do not open until the 2026 Abu Dhabi Grand Prix</div>
+    <div class="sealed-notice">⚠ &nbsp;Do not open until the 2026 Abu Dhabi Grand Prix</div>
   </header>
 
   <div class="progress-wrap">
@@ -321,9 +328,9 @@
     <div class="progress-label" id="pgLabel">0% complete</div>
   </div>
 
-  <!-- member info -->
+  <!-- MEMBER INFO -->
   <div class="section">
-    <div class="section-hd"><div class="sec-title">Member Info</div></div>
+    <div class="section-hd"><div class="sec-ltr">👤</div><div class="sec-title">Member Info</div></div>
     <div class="section-body">
       <div class="g2">
         <div class="field"><label>Your Name</label><input type="text" id="memberName" placeholder="Full name" data-track></div>
@@ -332,9 +339,9 @@
     </div>
   </div>
 
-  <!-- teammate battles -->
+  <!-- A: TEAMMATES -->
   <div class="section">
-    <div class="section-hd"><div class="sec-title">Teammate Battles — Who Scores More Points?</div></div>
+    <div class="section-hd"><div class="sec-ltr">A</div><div class="sec-title">Teammate Battles — Who Scores More Points?</div></div>
     <div class="section-body">
       <table class="tm-table">
         <thead><tr><th style="width:120px">Team</th><th>Your Pick</th></tr></thead>
@@ -343,24 +350,24 @@
     </div>
   </div>
 
-  <!-- constructors -->
+  <!-- B: CONSTRUCTORS -->
   <div class="section">
-    <div class="section-hd"><div class="sec-title">Constructors' Championship — Final Order</div></div>
+    <div class="section-hd"><div class="sec-ltr">B</div><div class="sec-title">Constructors' Championship — Final Order</div></div>
     <div class="section-body"><div class="c-grid" id="cGrid"></div></div>
   </div>
 
-  <!-- championship -->
+  <!-- C + D -->
   <div class="section">
-    <div class="section-hd"><div class="sec-title">Championship Predictions</div></div>
+    <div class="section-hd"><div class="sec-ltr">C–D</div><div class="sec-title">Championship Predictions</div></div>
     <div class="section-body">
       <div class="field">
-        <label>2026 World Drivers' Champion</label>
+        <label>C — 2026 World Drivers' Champion</label>
         <select id="wdc" data-track><option value="">Select driver…</option></select>
       </div>
       <div class="field" style="margin-top:14px">
-        <label>Season Type</label>
+        <label>D — Season Type</label>
         <div class="pills" id="seasonType">
-          <div class="pill" data-pill="seasonType">Tight like 2021 & 2025</div>
+          <div class="pill" data-pill="seasonType">Tight like 2021</div>
           <div class="pill" data-pill="seasonType">Dominant like 2023</div>
           <div class="pill" data-pill="seasonType">Chaotic & unpredictable</div>
           <div class="pill" data-pill="seasonType">Mid-season power shift</div>
@@ -369,71 +376,65 @@
     </div>
   </div>
 
-  <!-- full driver order -->
+  <!-- E: FULL DRIVER ORDER -->
   <div class="section">
-    <div class="section-hd"><div class="sec-title">Drivers' Championship — Full Final Order (1–22)</div></div>
+    <div class="section-hd"><div class="sec-ltr">E</div><div class="sec-title">Drivers' Championship — Full Final Order (1–22)</div></div>
     <div class="section-body"><div class="d-grid" id="dGrid"></div></div>
   </div>
 
-  <!-- season stats -->
+  <!-- F–I: STATS -->
   <div class="section">
-    <div class="section-hd"><div class="sec-title">Season Stats</div></div>
+    <div class="section-hd"><div class="sec-ltr">F–I</div><div class="sec-title">Season Stats</div></div>
     <div class="section-body">
       <div class="g2">
-        <div class="field"><label>Team with Most DNFs</label><select id="dnfTeam" data-track><option value="">Select team…</option></select></div>
-        <div class="field"><label>Driver with Most Overtakes</label><select id="overtakes" data-track><option value="">Select driver…</option></select></div>
-        <div class="field"><label>Teams Winning a Race</label><input type="text" id="teamsWin" placeholder="e.g. 3 teams" data-track></div>
-        <div class="field"><label>Teams Reaching Podium</label><input type="text" id="teamsPodium" placeholder="e.g. 5 teams" data-track></div>
-        <div class="field"><label>Shock Podium Driver (outside top 3 teams)</label><input type="text" id="shockDriver" placeholder="Driver name" data-track></div>
-        <div class="field"><label>Race (optional)</label><input type="text" id="shockRace" placeholder="Grand Prix name" data-track></div>
+        <div class="field"><label>F — Team with Most DNFs</label><select id="dnfTeam" data-track><option value="">Select team…</option></select></div>
+        <div class="field"><label>G — Driver with Most Overtakes</label><select id="overtakes" data-track><option value="">Select driver…</option></select></div>
+        <div class="field"><label>H — Teams Winning a Race</label><input type="text" id="teamsWin" placeholder="e.g. 3 teams" data-track></div>
+        <div class="field"><label>H — Teams Reaching Podium</label><input type="text" id="teamsPodium" placeholder="e.g. 5 teams" data-track></div>
+        <div class="field"><label>I — Shock Podium Driver (outside top 3 teams)</label><input type="text" id="shockDriver" placeholder="Driver name" data-track></div>
+        <div class="field"><label>I — Race (optional)</label><input type="text" id="shockRace" placeholder="Grand Prix name" data-track></div>
       </div>
     </div>
   </div>
 
-  <!-- ones to watch -->
+  <!-- J–M: DRIVERS TO WATCH -->
   <div class="section">
-    <div class="section-hd"><div class="sec-title">Ones to Watch</div></div>
+    <div class="section-hd"><div class="sec-ltr">J–M</div><div class="sec-title">Drivers & Teams to Watch</div></div>
     <div class="section-body">
       <div class="g2">
-        <div class="field"><label>Driver of the Year (not necessarily WDC)</label><select id="doty" data-track><option value="">Select driver…</option></select></div>
-        <div class="field"><label>Most Intense Teammate Battle</label><select id="tmBattle" data-track><option value="">Select team…</option></select></div>
-        <div class="field"><label>Driver Creating Most Off-Track Headlines</label><select id="headlines" data-track><option value="">Select driver…</option></select></div>
-        <div class="field"><label>Team That Nailed the 2026 Regs</label><select id="regsWinner" data-track><option value="">Select team…</option></select></div>
+        <div class="field"><label>J — Driver of the Year (≠ necessarily WDC)</label><select id="doty" data-track><option value="">Select driver…</option></select></div>
+        <div class="field"><label>K — Most Intense Teammate Battle</label><select id="tmBattle" data-track><option value="">Select team…</option></select></div>
+        <div class="field"><label>L — Driver Creating Most Off-Track Headlines</label><select id="headlines" data-track><option value="">Select driver…</option></select></div>
+        <div class="field"><label>M — New Regs Wildcard — Team That Nailed 2026 Rules</label><select id="regsWinner" data-track><option value="">Select team…</option></select></div>
       </div>
     </div>
   </div>
 
-  <!-- iconic race winners -->
+  <!-- N–P: RACE PICKS -->
   <div class="section">
-    <div class="section-hd"><div class="sec-title">Iconic Race Winners — Who Wins Their Home Race?</div></div>
+    <div class="section-hd"><div class="sec-ltr">N–P</div><div class="sec-title">Race Winners</div></div>
     <div class="section-body">
       <div class="g3">
-        <div class="field"><label>Silverstone</label><select id="silverstone" data-track><option value="">Driver…</option></select></div>
-        <div class="field"><label>Monaco</label><select id="monaco" data-track><option value="">Driver…</option></select></div>
-        <div class="field"><label>Singapore</label><select id="singapore" data-track><option value="">Driver…</option></select></div>
-      </div>
-
-      <div style="margin-top:16px; border-top:1px solid var(--border); padding-top:14px;">
-        <label style="display:block; font-size:10px; letter-spacing:1px; text-transform:uppercase; color:var(--muted); margin-bottom:10px;">Your Pick — Add Up to 3 More Races</label>
-        <div id="customRaces"></div>
-        <button type="button" id="addRaceBtn" onclick="addCustomRace()" style="margin-top:8px; background:transparent; border:1px dashed var(--border); color:var(--muted); font-family:'Barlow',sans-serif; font-size:12px; padding:6px 14px; border-radius:3px; cursor:pointer;">+ add a race</button>
+        <div class="field"><label>N — Australia (Race 1)</label><select id="australia" data-track><option value="">Driver…</option></select></div>
+        <div class="field"><label>O — Monaco</label><select id="monaco" data-track><option value="">Driver…</option></select></div>
+        <div class="field"><label>P — Abu Dhabi (Final)</label><select id="abudhabi" data-track><option value="">Driver…</option></select></div>
       </div>
     </div>
   </div>
 
-  <!-- storylines -->
+  <!-- Q–T: STORYLINES -->
   <div class="section">
-    <div class="section-hd"><div class="sec-title">Storylines</div></div>
+    <div class="section-hd"><div class="sec-ltr">Q–T</div><div class="sec-title">Storylines</div></div>
     <div class="section-body">
       <div class="g2">
-        <div class="field"><label>Biggest Surprise (team or driver)</label><input type="text" id="surprise" placeholder="Who will shock us?" data-track></div>
-        <div class="field"><label>Biggest Disappointment</label><input type="text" id="disappointment" placeholder="Who will flop?" data-track></div>
-        <div class="field"><label>First Grand Prix Win — Any New Winners?</label><select id="firstWin" data-track><option value="">Driver or 'None'…</option><option>None</option></select></div>
-        <div class="field"><label>Unluckiest Driver</label><select id="unlucky" data-track><option value="">Select driver…</option></select></div>
+        <div class="field"><label>Q — Biggest Surprise (team or driver)</label><input type="text" id="surprise" placeholder="Who will shock us?" data-track></div>
+        <div class="field"><label>R — Biggest Disappointment</label><input type="text" id="disappointment" placeholder="Who will flop?" data-track></div>
+        <div class="field"><label>S — First Grand Prix Win — Any New Winners?</label><select id="firstWin" data-track><option value="">Driver or 'None'…</option><option>None</option></select></div>
+        <div class="field"><label>T — Unluckiest Driver</label><select id="unlucky" data-track><option value="">Select driver…</option></select></div>
       </div>
 
       <div class="field" style="margin-top:14px">
-        <label>Rookie Watch: Lindblad (Racing Bulls)</label>
+        <label>U — Rookie Watch: Lindblad (Racing Bulls)</label>
         <div class="pills" id="rookieWatch">
           <div class="pill" data-pill="rookieWatch">Points scorer</div>
           <div class="pill" data-pill="rookieWatch">Outqualifies Lawson</div>
@@ -444,7 +445,7 @@
       </div>
 
       <div class="field" style="margin-top:14px">
-        <label>Hamilton at Ferrari</label>
+        <label>V — Hamilton at Ferrari</label>
         <div class="pills" id="hamiltonFerrari">
           <div class="pill" data-pill="hamiltonFerrari">WDC contender</div>
           <div class="pill" data-pill="hamiltonFerrari">Podium regular</div>
@@ -456,34 +457,34 @@
     </div>
   </div>
 
-  <!-- bold calls -->
+  <!-- W–Z: BOLD CALLS -->
   <div class="section">
-    <div class="section-hd"><div class="sec-title">Bold Calls</div></div>
+    <div class="section-hd"><div class="sec-ltr">W–Z</div><div class="sec-title">Bold Calls</div></div>
     <div class="section-body">
       <div class="g2">
         <div class="field">
-          <label>Audi vs Cadillac — Which Finishes Higher?</label>
+          <label>W — Audi vs Cadillac: Which Finishes Higher?</label>
           <div class="pills" id="newTeams">
             <div class="pill" data-pill="newTeams">Audi</div>
             <div class="pill" data-pill="newTeams">Cadillac</div>
             <div class="pill" data-pill="newTeams">Too close to call</div>
           </div>
         </div>
-        <div class="field"><label>Best finish for either new team</label><input type="text" id="newTeamFinish" placeholder="e.g. P9 at Monza" data-track></div>
-        <div class="field"><label>Best Race to Watch</label><input type="text" id="bestRace" placeholder="Grand Prix name" data-track></div>
-        <div class="field"><label>Worst Race to Watch</label><input type="text" id="worstRace" placeholder="Grand Prix name" data-track></div>
-        <div class="field"><label>2027 Silly Season Prediction</label><input type="text" id="silly" placeholder="e.g. Verstappen to Mercedes" data-track></div>
+        <div class="field"><label>W — Best finish for either new team</label><input type="text" id="newTeamFinish" placeholder="e.g. P9 at Monza" data-track></div>
+        <div class="field"><label>X — Best Race to Watch</label><input type="text" id="bestRace" placeholder="Grand Prix name" data-track></div>
+        <div class="field"><label>X — Worst Race to Watch</label><input type="text" id="worstRace" placeholder="Grand Prix name" data-track></div>
+        <div class="field"><label>Y — 2027 Silly Season Prediction</label><input type="text" id="silly" placeholder="e.g. Verstappen to Mercedes" data-track></div>
       </div>
       <div class="field" style="margin-top:12px">
-        <label>Boldest Prediction for 2026</label>
-        <textarea id="bold" rows="3" placeholder="No limits — bragging rights on the line at Abu Dhabi" data-track></textarea>
+        <label>Z — Your Boldest Prediction for 2026 (bragging rights on the line)</label>
+        <textarea id="bold" rows="3" placeholder="No limits — go wild…" data-track></textarea>
       </div>
     </div>
   </div>
 
   <div class="bottom-bar">
-    <button class="btn-seal" id="sealBtn" onclick="sealPredictions()">Seal My Predictions</button>
-    <div class="seal-note">Clicking seal downloads a PDF — save it to your phone notes or files and don't open it until Abu Dhabi.</div>
+    <button class="btn-seal" id="sealBtn" onclick="sealPredictions()">🏁 &nbsp;Seal My Predictions</button>
+    <div class="seal-note">Clicking seal will generate a PDF for you to save — your answers live in that file, so don't lose it! Bring it (unopened) to the Abu Dhabi watch party.</div>
   </div>
 
 </div>
@@ -491,68 +492,68 @@
 <!-- MODAL -->
 <div class="modal-bg" id="modalBg">
   <div class="modal">
+    <div class="modal-icon">🏁</div>
     <h2>Predictions Sealed!</h2>
-    <p>Your PDF is downloading now. Save it to your phone notes or files and <strong>lock it</strong> — don't open it until Abu Dhabi.</p>
+    <p>Your PDF is downloading now. Save it somewhere safe and <strong>don't peek</strong> until the Abu Dhabi Grand Prix. See you at the finale!</p>
     <div class="modal-actions">
-      <button class="btn-pdf" onclick="downloadPDF()">Download PDF Again</button>
+      <button class="btn-pdf" onclick="downloadPDF()">⬇ &nbsp;Download PDF Again</button>
       <button class="btn-new" onclick="resetForm()">New Submission</button>
     </div>
   </div>
 </div>
 
 <script>
-  // ─── DATA ───────────────────────────────────────────────────────────────────
-  //this section for data
-  const DRIVERS = [
-    { n: "Lando Norris",      t: "McLaren",       c: "c-mcl" },
-    { n: "Oscar Piastri",     t: "McLaren",       c: "c-mcl" },
-    { n: "Max Verstappen",    t: "Red Bull",      c: "c-rbl" },
-    { n: "Isack Hadjar",      t: "Red Bull",      c: "c-rbl" },
-    { n: "Charles Leclerc",   t: "Ferrari",       c: "c-fer" },
-    { n: "Lewis Hamilton",    t: "Ferrari",       c: "c-fer" },
-    { n: "George Russell",    t: "Mercedes",      c: "c-mer" },
-    { n: "Kimi Antonelli",    t: "Mercedes",      c: "c-mer" },
-    { n: "Fernando Alonso",   t: "Aston Martin",  c: "c-ast" },
-    { n: "Lance Stroll",      t: "Aston Martin",  c: "c-ast" },
-    { n: "Pierre Gasly",      t: "Alpine",        c: "c-alp" },
-    { n: "Franco Colapinto",  t: "Alpine",        c: "c-alp" },
-    { n: "Carlos Sainz",      t: "Williams",      c: "c-wil" },
-    { n: "Alex Albon",        t: "Williams",      c: "c-wil" },
-    { n: "Liam Lawson",       t: "Racing Bulls",  c: "c-rb"  },
-    { n: "Arvid Lindblad",    t: "Racing Bulls",  c: "c-rb"  },
-    { n: "Oliver Bearman",    t: "Haas",          c: "c-has" },
-    { n: "Esteban Ocon",      t: "Haas",          c: "c-has" },
-    { n: "Nico Hulkenberg",   t: "Audi",          c: "c-aud" },
-    { n: "Gabriel Bortoleto", t: "Audi",          c: "c-aud" },
-    { n: "Valtteri Bottas",   t: "Cadillac",      c: "c-cad" },
-    { n: "Sergio Perez",      t: "Cadillac",      c: "c-cad" },
-  ];
+// ─── DATA ───────────────────────────────────────────────────────────────────
+const DRIVERS = [
+  { n: "Lando Norris",      t: "McLaren",       c: "c-mcl" },
+  { n: "Oscar Piastri",     t: "McLaren",       c: "c-mcl" },
+  { n: "Max Verstappen",    t: "Red Bull",      c: "c-rbl" },
+  { n: "Isack Hadjar",      t: "Red Bull",      c: "c-rbl" },
+  { n: "Charles Leclerc",   t: "Ferrari",       c: "c-fer" },
+  { n: "Lewis Hamilton",    t: "Ferrari",       c: "c-fer" },
+  { n: "George Russell",    t: "Mercedes",      c: "c-mer" },
+  { n: "Kimi Antonelli",    t: "Mercedes",      c: "c-mer" },
+  { n: "Fernando Alonso",   t: "Aston Martin",  c: "c-ast" },
+  { n: "Lance Stroll",      t: "Aston Martin",  c: "c-ast" },
+  { n: "Pierre Gasly",      t: "Alpine",        c: "c-alp" },
+  { n: "Franco Colapinto",  t: "Alpine",        c: "c-alp" },
+  { n: "Carlos Sainz",      t: "Williams",      c: "c-wil" },
+  { n: "Alex Albon",        t: "Williams",      c: "c-wil" },
+  { n: "Liam Lawson",       t: "Racing Bulls",  c: "c-rb"  },
+  { n: "Arvid Lindblad",    t: "Racing Bulls",  c: "c-rb"  },
+  { n: "Oliver Bearman",    t: "Haas",          c: "c-has" },
+  { n: "Esteban Ocon",      t: "Haas",          c: "c-has" },
+  { n: "Nico Hulkenberg",   t: "Audi",          c: "c-aud" },
+  { n: "Gabriel Bortoleto", t: "Audi",          c: "c-aud" },
+  { n: "Valtteri Bottas",   t: "Cadillac",      c: "c-cad" },
+  { n: "Sergio Perez",      t: "Cadillac",      c: "c-cad" },
+];
 
-  const TEAMS = ["McLaren","Red Bull","Ferrari","Mercedes","Aston Martin","Alpine","Williams","Racing Bulls","Haas","Audi","Cadillac"];
+const TEAMS = ["McLaren","Red Bull","Ferrari","Mercedes","Aston Martin","Alpine","Williams","Racing Bulls","Haas","Audi","Cadillac"];
 
-  const PAIRS = [
-    { t:"McLaren",      tc:"c-mcl", d1:"Norris",      d2:"Piastri"    },
-    { t:"Red Bull",     tc:"c-rbl", d1:"Verstappen",  d2:"Hadjar"     },
-    { t:"Ferrari",      tc:"c-fer", d1:"Leclerc",     d2:"Hamilton"   },
-    { t:"Mercedes",     tc:"c-mer", d1:"Russell",     d2:"Antonelli"  },
-    { t:"Aston Martin", tc:"c-ast", d1:"Alonso",      d2:"Stroll"     },
-    { t:"Alpine",       tc:"c-alp", d1:"Gasly",       d2:"Colapinto"  },
-    { t:"Williams",     tc:"c-wil", d1:"Sainz",       d2:"Albon"      },
-    { t:"Racing Bulls", tc:"c-rb",  d1:"Lawson",      d2:"Lindblad"   },
-    { t:"Haas",         tc:"c-has", d1:"Bearman",     d2:"Ocon"       },
-    { t:"Audi",         tc:"c-aud", d1:"Hulkenberg",  d2:"Bortoleto"  },
-    { t:"Cadillac",     tc:"c-cad", d1:"Bottas",      d2:"Perez"      },
-  ];
+const PAIRS = [
+  { t:"McLaren",      tc:"c-mcl", d1:"Norris",      d2:"Piastri"    },
+  { t:"Red Bull",     tc:"c-rbl", d1:"Verstappen",  d2:"Hadjar"     },
+  { t:"Ferrari",      tc:"c-fer", d1:"Leclerc",     d2:"Hamilton"   },
+  { t:"Mercedes",     tc:"c-mer", d1:"Russell",     d2:"Antonelli"  },
+  { t:"Aston Martin", tc:"c-ast", d1:"Alonso",      d2:"Stroll"     },
+  { t:"Alpine",       tc:"c-alp", d1:"Gasly",       d2:"Colapinto"  },
+  { t:"Williams",     tc:"c-wil", d1:"Sainz",       d2:"Albon"      },
+  { t:"Racing Bulls", tc:"c-rb",  d1:"Lawson",      d2:"Lindblad"   },
+  { t:"Haas",         tc:"c-has", d1:"Bearman",     d2:"Ocon"       },
+  { t:"Audi",         tc:"c-aud", d1:"Hulkenberg",  d2:"Bortoleto"  },
+  { t:"Cadillac",     tc:"c-cad", d1:"Bottas",      d2:"Perez"      },
+];
 
-  const PILL_GROUPS = ["seasonType","rookieWatch","hamiltonFerrari","newTeams"];
-  const pillState = {};
+const PILL_GROUPS = ["seasonType","rookieWatch","hamiltonFerrari","newTeams"];
+const pillState = {};
 
-  //this section for building the ui
-  function buildTeammates() {
-    const body = document.getElementById('tmBody');
-    PAIRS.forEach((p, i) => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
+// ─── BUILD UI ────────────────────────────────────────────────────────────────
+function buildTeammates() {
+  const body = document.getElementById('tmBody');
+  PAIRS.forEach((p, i) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
       <td><span class="tm-name ${p.tc}">${p.t}</span></td>
       <td>
         <div class="drv-toggle">
@@ -561,425 +562,416 @@
         </div>
         <input type="hidden" id="tm${i}" data-track>
       </td>`;
-      body.appendChild(tr);
-    });
-  }
+    body.appendChild(tr);
+  });
+}
 
-  function pickTm(btn, id, val) {
-    btn.parentElement.querySelectorAll('.drv-btn').forEach(b => b.classList.remove('on'));
-    btn.classList.add('on');
-    document.getElementById(id).value = val;
-    updateProgress();
-  }
+function pickTm(btn, id, val) {
+  btn.parentElement.querySelectorAll('.drv-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById(id).value = val;
+  updateProgress();
+}
 
-  function buildConstructors() {
-    const grid = document.getElementById('cGrid');
-    const suf = ['st','nd','rd'];
-    for (let i = 1; i <= 11; i++) {
-      const label = i <= 3 ? `${i}${suf[i-1]}` : i === 11 ? '11th (Last)' : `${i}th`;
-      const div = document.createElement('div');
-      div.className = 'pos-row';
-      div.innerHTML = `
+function buildConstructors() {
+  const grid = document.getElementById('cGrid');
+  const suf = ['st','nd','rd'];
+  for (let i = 1; i <= 11; i++) {
+    const label = i <= 3 ? `${i}${suf[i-1]}` : i === 11 ? '11th (Last)' : `${i}th`;
+    const div = document.createElement('div');
+    div.className = 'pos-row';
+    div.innerHTML = `
       <span class="pos-n">${i}</span>
       <select id="c${i}" data-track style="flex:1">
         <option value="">Team…</option>
         ${TEAMS.map(t=>`<option>${t}</option>`).join('')}
       </select>`;
-      grid.appendChild(div);
-    }
+    grid.appendChild(div);
   }
+}
 
-  function buildDriverOrder() {
-    const grid = document.getElementById('dGrid');
-    const opts = DRIVERS.map(d=>`<option value="${d.n}">${d.n} (${d.t})</option>`).join('');
-    for (let i = 1; i <= 22; i++) {
-      const div = document.createElement('div');
-      div.className = 'pos-row';
-      div.innerHTML = `
+function buildDriverOrder() {
+  const grid = document.getElementById('dGrid');
+  const opts = DRIVERS.map(d=>`<option value="${d.n}">${d.n} (${d.t})</option>`).join('');
+  for (let i = 1; i <= 22; i++) {
+    const div = document.createElement('div');
+    div.className = 'pos-row';
+    div.innerHTML = `
       <span class="pos-n">${i}</span>
       <select id="d${i}" data-track style="flex:1">
         <option value="">Driver…</option>${opts}
       </select>`;
-      grid.appendChild(div);
-    }
+    grid.appendChild(div);
   }
+}
 
-  function populateSelects() {
-    const driverSels = ['wdc','overtakes','doty','headlines','silverstone','monaco','singapore','firstWin','unlucky'];
-    const dOpts = DRIVERS.map(d=>`<option value="${d.n}">${d.n} (${d.t})</option>`).join('');
-    driverSels.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.innerHTML += dOpts;
-    });
-    const teamSels = ['dnfTeam','tmBattle','regsWinner'];
-    const tOpts = TEAMS.map(t=>`<option>${t}</option>`).join('');
-    teamSels.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.innerHTML += tOpts;
-    });
-  }
-
-  function initPills() {
-    document.querySelectorAll('[data-pill]').forEach(pill => {
-      pill.addEventListener('click', () => {
-        const group = pill.dataset.pill;
-        document.querySelectorAll(`[data-pill="${group}"]`).forEach(p => p.classList.remove('on'));
-        pill.classList.add('on');
-        pillState[group] = pill.textContent;
-        updateProgress();
-      });
-    });
-  }
-
-  //this section for custom race picks
-  let customRaceCount = 0;
-  const driverOptsHtml = () => DRIVERS.map(d=>`<option value="${d.n}">${d.n}</option>`).join('');
-
-  function addCustomRace() {
-    if (customRaceCount >= 3) return;
-    const i = customRaceCount++;
-    const wrap = document.createElement('div');
-    wrap.className = 'g2';
-    wrap.style.marginBottom = '8px';
-    wrap.id = `cr${i}`;
-    wrap.innerHTML = `
-    <div class="field"><label>Race ${i+1}</label><input type="text" id="crName${i}" placeholder="e.g. Japanese GP" data-track></div>
-    <div class="field"><label>Winner Pick</label><select id="crPick${i}" data-track><option value="">Driver…</option>${driverOptsHtml()}</select></div>`;
-    document.getElementById('customRaces').appendChild(wrap);
-    if (customRaceCount >= 3) document.getElementById('addRaceBtn').style.display = 'none';
-    updateProgress();
-  }
-  function updateProgress() {
-    const tracked = document.querySelectorAll('[data-track]');
-    let filled = 0;
-    tracked.forEach(el => { if (el.value && el.value.trim()) filled++; });
-    const pillFilled = PILL_GROUPS.filter(g => pillState[g]).length;
-    const total = tracked.length + PILL_GROUPS.length;
-    const totalFilled = filled + pillFilled;
-    const pct = Math.round((totalFilled / total) * 100);
-    document.getElementById('pgFill').style.width = pct + '%';
-    document.getElementById('pgLabel').textContent = `${pct}% complete — ${totalFilled} of ${total} fields`;
-  }
-
-  document.addEventListener('change', updateProgress);
-  document.addEventListener('input', updateProgress);
-
-  //this section for collecting form data
-  function val(id) {
+function populateSelects() {
+  const driverSels = ['wdc','overtakes','doty','headlines','australia','monaco','abudhabi','firstWin','unlucky'];
+  const dOpts = DRIVERS.map(d=>`<option value="${d.n}">${d.n} (${d.t})</option>`).join('');
+  driverSels.forEach(id => {
     const el = document.getElementById(id);
-    return el ? (el.value || '—') : '—';
+    if (el) el.innerHTML += dOpts;
+  });
+  const teamSels = ['dnfTeam','tmBattle','regsWinner'];
+  const tOpts = TEAMS.map(t=>`<option>${t}</option>`).join('');
+  teamSels.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML += tOpts;
+  });
+}
+
+function initPills() {
+  document.querySelectorAll('[data-pill]').forEach(pill => {
+    pill.addEventListener('click', () => {
+      const group = pill.dataset.pill;
+      document.querySelectorAll(`[data-pill="${group}"]`).forEach(p => p.classList.remove('on'));
+      pill.classList.add('on');
+      pillState[group] = pill.textContent;
+      updateProgress();
+    });
+  });
+}
+
+// ─── PROGRESS ────────────────────────────────────────────────────────────────
+function updateProgress() {
+  const tracked = document.querySelectorAll('[data-track]');
+  let filled = 0;
+  tracked.forEach(el => { if (el.value && el.value.trim()) filled++; });
+  const pillFilled = PILL_GROUPS.filter(g => pillState[g]).length;
+  const total = tracked.length + PILL_GROUPS.length;
+  const totalFilled = filled + pillFilled;
+  const pct = Math.round((totalFilled / total) * 100);
+  document.getElementById('pgFill').style.width = pct + '%';
+  document.getElementById('pgLabel').textContent = `${pct}% complete — ${totalFilled} of ${total} fields`;
+}
+
+document.addEventListener('change', updateProgress);
+document.addEventListener('input', updateProgress);
+
+// ─── COLLECT DATA ────────────────────────────────────────────────────────────
+function val(id) {
+  const el = document.getElementById(id);
+  return el ? (el.value || '—') : '—';
+}
+
+function collectData() {
+  const teammates = PAIRS.map((p, i) => ({
+    team: p.t, pick: document.getElementById(`tm${i}`)?.value || '—'
+  }));
+  const constructors = [];
+  for (let i = 1; i <= 11; i++) constructors.push(val(`c${i}`));
+  const driverOrder = [];
+  for (let i = 1; i <= 22; i++) driverOrder.push(val(`d${i}`));
+
+  return {
+    name: val('memberName'), date: val('sealDate'),
+    teammates, constructors, driverOrder,
+    wdc: val('wdc'), seasonType: pillState['seasonType'] || '—',
+    dnfTeam: val('dnfTeam'), overtakes: val('overtakes'),
+    teamsWin: val('teamsWin'), teamsPodium: val('teamsPodium'),
+    shockDriver: val('shockDriver'), shockRace: val('shockRace'),
+    doty: val('doty'), tmBattle: val('tmBattle'),
+    headlines: val('headlines'), regsWinner: val('regsWinner'),
+    australia: val('australia'), monaco: val('monaco'), abudhabi: val('abudhabi'),
+    surprise: val('surprise'), disappointment: val('disappointment'),
+    firstWin: val('firstWin'), unlucky: val('unlucky'),
+    rookieWatch: pillState['rookieWatch'] || '—',
+    hamiltonFerrari: pillState['hamiltonFerrari'] || '—',
+    newTeams: pillState['newTeams'] || '—',
+    newTeamFinish: val('newTeamFinish'),
+    bestRace: val('bestRace'), worstRace: val('worstRace'),
+    silly: val('silly'), bold: val('bold'),
+  };
+}
+
+// ─── PDF GENERATION ──────────────────────────────────────────────────────────
+let lastData = null;
+
+function sealPredictions() {
+  lastData = collectData();
+  generatePDF(lastData);
+  document.getElementById('modalBg').classList.add('show');
+}
+
+function downloadPDF() {
+  if (lastData) generatePDF(lastData);
+}
+
+function generatePDF(data) {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+
+  const W = 210, H = 297;
+  const ML = 14, MR = 14, MT = 14;
+  let y = MT;
+
+  const RED = [232, 0, 45];
+  const GOLD = [201, 162, 39];
+  const DARK = [20, 20, 20];
+  const MID = [100, 100, 100];
+  const LIGHT = [240, 240, 240];
+  const BG2 = [245, 245, 245];
+  const colW = (W - ML - MR);
+
+  function newPage() {
+    doc.addPage();
+    y = MT;
+    // subtle header line
+    doc.setDrawColor(...RED);
+    doc.setLineWidth(0.4);
+    doc.line(ML, 8, W - MR, 8);
+    doc.setFontSize(7);
+    doc.setTextColor(...MID);
+    doc.setFont('helvetica','italic');
+    doc.text('2026 F1 Season Predictions · ' + data.name + ' · DO NOT OPEN UNTIL ABU DHABI', ML, 6);
+    y = MT + 2;
   }
 
-  function collectData() {
-    const teammates = PAIRS.map((p, i) => ({
-      team: p.t, pick: document.getElementById(`tm${i}`)?.value || '—'
-    }));
-    const constructors = [];
-    for (let i = 1; i <= 11; i++) constructors.push(val(`c${i}`));
-    const driverOrder = [];
-    for (let i = 1; i <= 22; i++) driverOrder.push(val(`d${i}`));
-
-    return {
-      name: val('memberName'), date: val('sealDate'),
-      teammates, constructors, driverOrder,
-      wdc: val('wdc'), seasonType: pillState['seasonType'] || '—',
-      dnfTeam: val('dnfTeam'), overtakes: val('overtakes'),
-      teamsWin: val('teamsWin'), teamsPodium: val('teamsPodium'),
-      shockDriver: val('shockDriver'), shockRace: val('shockRace'),
-      doty: val('doty'), tmBattle: val('tmBattle'),
-      headlines: val('headlines'), regsWinner: val('regsWinner'),
-      silverstone: val('silverstone'), monaco: val('monaco'), singapore: val('singapore'),
-      surprise: val('surprise'), disappointment: val('disappointment'),
-      firstWin: val('firstWin'), unlucky: val('unlucky'),
-      rookieWatch: pillState['rookieWatch'] || '—',
-      hamiltonFerrari: pillState['hamiltonFerrari'] || '—',
-      newTeams: pillState['newTeams'] || '—',
-      newTeamFinish: val('newTeamFinish'),
-      bestRace: val('bestRace'), worstRace: val('worstRace'),
-      silly: val('silly'), bold: val('bold'),
-      customRaces: Array.from({length: customRaceCount}, (_,i) => ({
-        name: val(`crName${i}`), pick: val(`crPick${i}`)
-      })).filter(r => r.name !== '—'),
-    };
+  function checkY(needed = 8) {
+    if (y + needed > H - 16) newPage();
   }
 
-  //this section for pdf gen
-  let lastData = null;
-
-  function sealPredictions() {
-    lastData = collectData();
-    generatePDF(lastData);
-    document.getElementById('modalBg').classList.add('show');
+  function sectionHead(letter, title) {
+    checkY(10);
+    doc.setFillColor(...RED);
+    doc.rect(ML, y, 5, 5, 'F');
+    doc.setFont('helvetica','bold');
+    doc.setFontSize(8.5);
+    doc.setTextColor(255,255,255);
+    doc.text(letter, ML + 0.8, y + 3.6);
+    doc.setTextColor(...DARK);
+    doc.setFontSize(8.5);
+    doc.text(title.toUpperCase(), ML + 7, y + 3.6);
+    y += 7;
+    doc.setDrawColor(...RED);
+    doc.setLineWidth(0.3);
+    doc.line(ML, y, W - MR, y);
+    y += 3;
   }
 
-  function downloadPDF() {
-    if (lastData) generatePDF(lastData);
+  function row(label, value, indent = 2) {
+    checkY(6);
+    doc.setFont('helvetica','normal');
+    doc.setFontSize(7.5);
+    doc.setTextColor(...MID);
+    doc.text(label, ML + indent, y);
+    doc.setTextColor(...DARK);
+    doc.setFont('helvetica','bold');
+    const x2 = ML + indent + 48;
+    doc.text(value.length > 55 ? value.substring(0,52)+'…' : value, x2, y);
+    y += 5;
   }
 
-  function generatePDF(data) {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF({ unit: 'mm', format: 'a4' });
-
-    const W = 210, H = 297;
-    const ML = 14, MR = 14, MT = 14;
-    let y = MT;
-
-    const RED = [232, 0, 45];
-    const GOLD = [201, 162, 39];
-    const DARK = [20, 20, 20];
-    const MID = [100, 100, 100];
-    const BG2 = [245, 245, 245];
-    const colW = (W - ML - MR);
-
-    function newPage() {
-      doc.addPage();
-      y = MT;
-      doc.setDrawColor(...RED);
-      doc.setLineWidth(0.4);
-      doc.line(ML, 8, W - MR, 8);
-      doc.setFontSize(7);
-      doc.setTextColor(...MID);
-      doc.setFont('helvetica','italic');
-      doc.text('2026 F1 Season Predictions · ' + data.name + ' · DO NOT OPEN UNTIL ABU DHABI', ML, 6);
-      y = MT + 2;
-    }
-
-    function checkY(needed = 8) {
-      if (y + needed > H - 16) newPage();
-    }
-
-    function sectionHead(letter, title) {
-      checkY(10);
-      doc.setFillColor(...RED);
-      doc.rect(ML, y, 5, 5, 'F');
-      doc.setFont('helvetica','bold');
-      doc.setFontSize(8.5);
-      doc.setTextColor(255,255,255);
-      doc.text(letter, ML + 0.8, y + 3.6);
-      doc.setTextColor(...DARK);
-      doc.setFontSize(8.5);
-      doc.text(title.toUpperCase(), ML + 7, y + 3.6);
-      y += 7;
-      doc.setDrawColor(...RED);
-      doc.setLineWidth(0.3);
-      doc.line(ML, y, W - MR, y);
-      y += 3;
-    }
-
-    function row(label, value, indent = 2) {
-      checkY(6);
-      doc.setFont('helvetica','normal');
-      doc.setFontSize(7.5);
-      doc.setTextColor(...MID);
-      doc.text(label, ML + indent, y);
-      doc.setTextColor(...DARK);
-      doc.setFont('helvetica','bold');
-      const x2 = ML + indent + 48;
-      doc.text(value.length > 55 ? value.substring(0,52)+'…' : value, x2, y);
+  function twoColRows(pairs, indent = 2) {
+    const half = Math.ceil(pairs.length / 2);
+    const left = pairs.slice(0, half);
+    const right = pairs.slice(half);
+    const maxRows = Math.max(left.length, right.length);
+    for (let i = 0; i < maxRows; i++) {
+      checkY(5);
+      if (left[i]) {
+        doc.setFont('helvetica','normal');
+        doc.setFontSize(7.5);
+        doc.setTextColor(...MID);
+        doc.text(left[i][0], ML + indent, y);
+        doc.setTextColor(...DARK);
+        doc.setFont('helvetica','bold');
+        doc.text(left[i][1].substring(0,24), ML + indent + 22, y);
+      }
+      if (right[i]) {
+        const rx = ML + colW / 2 + 2;
+        doc.setFont('helvetica','normal');
+        doc.setFontSize(7.5);
+        doc.setTextColor(...MID);
+        doc.text(right[i][0], rx + indent, y);
+        doc.setTextColor(...DARK);
+        doc.setFont('helvetica','bold');
+        doc.text(right[i][1].substring(0,24), rx + indent + 22, y);
+      }
       y += 5;
     }
-
-    function twoColRows(pairs, indent = 2) {
-      const half = Math.ceil(pairs.length / 2);
-      const left = pairs.slice(0, half);
-      const right = pairs.slice(half);
-      const maxRows = Math.max(left.length, right.length);
-      for (let i = 0; i < maxRows; i++) {
-        checkY(5);
-        if (left[i]) {
-          doc.setFont('helvetica','normal');
-          doc.setFontSize(7.5);
-          doc.setTextColor(...MID);
-          doc.text(left[i][0], ML + indent, y);
-          doc.setTextColor(...DARK);
-          doc.setFont('helvetica','bold');
-          doc.text(left[i][1].substring(0,24), ML + indent + 22, y);
-        }
-        if (right[i]) {
-          const rx = ML + colW / 2 + 2;
-          doc.setFont('helvetica','normal');
-          doc.setFontSize(7.5);
-          doc.setTextColor(...MID);
-          doc.text(right[i][0], rx + indent, y);
-          doc.setTextColor(...DARK);
-          doc.setFont('helvetica','bold');
-          doc.text(right[i][1].substring(0,24), rx + indent + 22, y);
-        }
-        y += 5;
-      }
-    }
-
-    function pill(label) {
-      checkY(5);
-      doc.setFillColor(232, 0, 45, 0.12);
-      doc.setFillColor(255, 230, 234);
-      doc.roundedRect(ML + 2, y - 3.5, doc.getTextWidth(label) + 6, 5, 1.5, 1.5, 'F');
-      doc.setFont('helvetica','bold');
-      doc.setFontSize(7.5);
-      doc.setTextColor(...RED);
-      doc.text(label, ML + 5, y);
-      y += 6;
-    }
-
-    //header
-    doc.setFillColor(...RED);
-    doc.rect(0, 0, W, 22, 'F');
-
-    doc.setFont('helvetica','bold');
-    doc.setFontSize(18);
-    doc.setTextColor(255,255,255);
-    doc.text('2026 F1 SEASON PREDICTIONS', ML, 13);
-
-    doc.setFontSize(7.5);
-    doc.setFont('helvetica','normal');
-    doc.text('F1 Watch Club · Sealed until the Abu Dhabi Grand Prix', ML, 19);
-
-    y = 28;
-
-    //warning box
-    doc.setFillColor(201, 162, 39, 0.15);
-    doc.setFillColor(252, 248, 235);
-    doc.setDrawColor(...GOLD);
-    doc.setLineWidth(0.5);
-    doc.roundedRect(ML, y, colW, 10, 2, 2, 'FD');
-    doc.setFont('helvetica','bold');
-    doc.setFontSize(8);
-    doc.setTextColor(...GOLD);
-    doc.text('DO NOT OPEN UNTIL THE 2026 ABU DHABI GRAND PRIX', W/2, y + 6.5, { align: 'center' });
-    y += 14;
-
-    //member info box
-    doc.setFillColor(...BG2);
-    doc.setDrawColor(220,220,220);
-    doc.setLineWidth(0.3);
-    doc.roundedRect(ML, y, colW, 12, 2, 2, 'FD');
-    doc.setFont('helvetica','normal');
-    doc.setFontSize(7.5);
-    doc.setTextColor(...MID);
-    doc.text('Member Name', ML + 4, y + 5);
-    doc.setFont('helvetica','bold');
-    doc.setFontSize(9);
-    doc.setTextColor(...DARK);
-    doc.text(data.name, ML + 30, y + 5);
-    doc.setFont('helvetica','normal');
-    doc.setFontSize(7.5);
-    doc.setTextColor(...MID);
-    doc.text('Date Sealed', ML + 4, y + 10);
-    doc.setFont('helvetica','bold');
-    doc.setFontSize(8);
-    doc.setTextColor(...DARK);
-    doc.text(data.date, ML + 30, y + 10);
-    y += 16;
-
-    sectionHead('A', 'Teammate Battles');
-    const tmPairs = data.teammates.map((t,i) => [`${i+1}. ${t.team}:`, t.pick]);
-    twoColRows(tmPairs);
-    y += 2;
-
-    sectionHead('B', "Constructors Championship");
-    const cPairs = data.constructors.map((t,i) => [`${i+1}${['st','nd','rd'][i]||'th'}:`, t]);
-    twoColRows(cPairs);
-    y += 2;
-
-    sectionHead('C-D', 'Championship Predictions');
-    row("C. World Drivers' Champion:", data.wdc);
-    row('D. Season type:', data.seasonType);
-    y += 2;
-
-    sectionHead('E', "Drivers Championship - Full Order");
-    const dPairs = data.driverOrder.map((d,i) => [`${i+1}.`, d]);
-    twoColRows(dPairs);
-    y += 2;
-
-    sectionHead('F-I', 'Season Stats');
-    row('F. Most DNFs:', data.dnfTeam);
-    row('G. Most overtakes:', data.overtakes);
-    row('H. Teams winning races:', data.teamsWin);
-    row('H. Teams on podium:', data.teamsPodium);
-    row('I. Shock podium driver:', data.shockDriver + (data.shockRace !== '—' ? ' · ' + data.shockRace : ''));
-    y += 2;
-
-    sectionHead('J-M', 'Drivers & Teams to Watch');
-    row('J. Driver of the Year:', data.doty);
-    row('K. Toughest teammate battle:', data.tmBattle);
-    row('L. Most off-track headlines:', data.headlines);
-    row('M. New regs wildcard team:', data.regsWinner);
-    y += 2;
-
-    sectionHead('N-P', 'Iconic Race Winners');
-    row('N. Silverstone:', data.silverstone);
-    row('O. Monaco:', data.monaco);
-    row('P. Singapore:', data.singapore);
-    if (data.customRaces && data.customRaces.length) {
-      data.customRaces.forEach(r => row(r.name + ':', r.pick));
-    }
-    y += 2;
-
-    sectionHead('Q-T', 'Storylines');
-    row('Q. Biggest surprise:', data.surprise);
-    row('R. Biggest disappointment:', data.disappointment);
-    row('S. First GP win:', data.firstWin);
-    row('T. Unluckiest driver:', data.unlucky);
-    y += 2;
-
-    sectionHead('U-V', 'Driver Watch');
-    doc.setFont('helvetica','normal');
-    doc.setFontSize(7.5);
-    doc.setTextColor(...MID);
-    doc.text('U. Lindblad (Rookie):', ML + 2, y); y += 5;
-    pill(data.rookieWatch);
-    doc.text('V. Hamilton at Ferrari:', ML + 2, y); y += 5;
-    pill(data.hamiltonFerrari);
-    y += 2;
-
-    sectionHead('W-Z', 'Bold Calls');
-    row('W. Higher-placed new team:', data.newTeams + (data.newTeamFinish !== '—' ? ' · ' + data.newTeamFinish : ''));
-    row('X. Best race:', data.bestRace);
-    row('X. Worst race:', data.worstRace);
-    row('Y. 2027 silly season:', data.silly);
-
-    checkY(12);
-    doc.setFont('helvetica','normal');
-    doc.setFontSize(7.5);
-    doc.setTextColor(...MID);
-    doc.text('Z. Bold prediction:', ML + 2, y);
-    y += 5;
-    doc.setFont('helvetica','bold');
-    doc.setFontSize(8);
-    doc.setTextColor(...DARK);
-    const boldLines = doc.splitTextToSize(data.bold, colW - 6);
-    boldLines.forEach(line => { checkY(5); doc.text(line, ML + 4, y); y += 5; });
-
-    //footer
-    const totalPages = doc.internal.getNumberOfPages();
-    for (let i = 1; i <= totalPages; i++) {
-      doc.setPage(i);
-      doc.setDrawColor(...RED);
-      doc.setLineWidth(0.4);
-      doc.line(ML, H - 10, W - MR, H - 10);
-      doc.setFont('helvetica','normal');
-      doc.setFontSize(6.5);
-      doc.setTextColor(...MID);
-      doc.text(`${data.name} · 2026 F1 Predictions · DO NOT OPEN UNTIL ABU DHABI`, ML, H - 6);
-      doc.text(`Page ${i} of ${totalPages}`, W - MR, H - 6, { align: 'right' });
-    }
-
-    const safeName = data.name.replace(/[^a-zA-Z0-9]/g,'_') || 'Member';
-    doc.save(`2026_F1_Predictions_${safeName}.pdf`);
   }
 
-  function resetForm() {
-    document.getElementById('modalBg').classList.remove('show');
-    window.location.reload();
+  function pill(label) {
+    checkY(5);
+    doc.setFillColor(232, 0, 45, 0.12);
+    doc.setFillColor(255, 230, 234);
+    doc.roundedRect(ML + 2, y - 3.5, doc.getTextWidth(label) + 6, 5, 1.5, 1.5, 'F');
+    doc.setFont('helvetica','bold');
+    doc.setFontSize(7.5);
+    doc.setTextColor(...RED);
+    doc.text(label, ML + 5, y);
+    y += 6;
   }
 
-  //init
-  buildTeammates();
-  buildConstructors();
-  buildDriverOrder();
-  populateSelects();
-  initPills();
-  updateProgress();
+  // ── COVER ──
+  // Header bar
+  doc.setFillColor(...RED);
+  doc.rect(0, 0, W, 22, 'F');
+
+  doc.setFont('helvetica','bold');
+  doc.setFontSize(18);
+  doc.setTextColor(255,255,255);
+  doc.text('2026 F1 SEASON PREDICTIONS', ML, 13);
+
+  doc.setFontSize(7.5);
+  doc.setFont('helvetica','normal');
+  doc.text('F1 Watch Club  ·  Sealed until the Abu Dhabi Grand Prix', ML, 19);
+
+  y = 28;
+
+  // Gold warning box
+  doc.setFillColor(201, 162, 39, 0.15);
+  doc.setFillColor(252, 248, 235);
+  doc.setDrawColor(...GOLD);
+  doc.setLineWidth(0.5);
+  doc.roundedRect(ML, y, colW, 10, 2, 2, 'FD');
+  doc.setFont('helvetica','bold');
+  doc.setFontSize(8);
+  doc.setTextColor(...GOLD);
+  doc.text('⚠  DO NOT OPEN UNTIL THE 2026 ABU DHABI GRAND PRIX  ⚠', W/2, y + 6.5, { align: 'center' });
+  y += 14;
+
+  // Member info box
+  doc.setFillColor(...BG2);
+  doc.setDrawColor(220,220,220);
+  doc.setLineWidth(0.3);
+  doc.roundedRect(ML, y, colW, 12, 2, 2, 'FD');
+  doc.setFont('helvetica','normal');
+  doc.setFontSize(7.5);
+  doc.setTextColor(...MID);
+  doc.text('Member Name', ML + 4, y + 5);
+  doc.setFont('helvetica','bold');
+  doc.setFontSize(9);
+  doc.setTextColor(...DARK);
+  doc.text(data.name, ML + 30, y + 5);
+  doc.setFont('helvetica','normal');
+  doc.setFontSize(7.5);
+  doc.setTextColor(...MID);
+  doc.text('Date Sealed', ML + 4, y + 10);
+  doc.setFont('helvetica','bold');
+  doc.setFontSize(8);
+  doc.setTextColor(...DARK);
+  doc.text(data.date, ML + 30, y + 10);
+  y += 16;
+
+  // ── SECTION A: Teammates ──
+  sectionHead('A', 'Teammate Battles');
+  const tmPairs = data.teammates.map((t,i) => [`${i+1}. ${t.team}:`, t.pick]);
+  twoColRows(tmPairs);
+  y += 2;
+
+  // ── SECTION B: Constructors ──
+  sectionHead('B', "Constructors' Championship");
+  const cPairs = data.constructors.map((t,i) => [`${i+1}${['st','nd','rd'][i]||'th'}:`, t]);
+  twoColRows(cPairs);
+  y += 2;
+
+  // ── C & D ──
+  sectionHead('C–D', 'Championship Predictions');
+  row('C. World Drivers\' Champion:', data.wdc);
+  row('D. Season type:', data.seasonType);
+  y += 2;
+
+  // ── E: Driver Order ──
+  sectionHead('E', "Drivers' Championship — Full Order");
+  const dPairs = data.driverOrder.map((d,i) => [`${i+1}.`, d]);
+  twoColRows(dPairs);
+  y += 2;
+
+  // ── F–I ──
+  sectionHead('F–I', 'Season Stats');
+  row('F. Most DNFs:', data.dnfTeam);
+  row('G. Most overtakes:', data.overtakes);
+  row('H. Teams winning races:', data.teamsWin);
+  row('H. Teams on podium:', data.teamsPodium);
+  row('I. Shock podium driver:', data.shockDriver + (data.shockRace !== '—' ? ' · ' + data.shockRace : ''));
+  y += 2;
+
+  // ── J–M ──
+  sectionHead('J–M', 'Drivers & Teams to Watch');
+  row('J. Driver of the Year:', data.doty);
+  row('K. Toughest teammate battle:', data.tmBattle);
+  row('L. Most off-track headlines:', data.headlines);
+  row('M. New regs wildcard team:', data.regsWinner);
+  y += 2;
+
+  // ── N–P ──
+  sectionHead('N–P', 'Race Winners');
+  row('N. Australia (Race 1):', data.australia);
+  row('O. Monaco:', data.monaco);
+  row('P. Abu Dhabi (Final):', data.abudhabi);
+  y += 2;
+
+  // ── Q–T ──
+  sectionHead('Q–T', 'Storylines');
+  row('Q. Biggest surprise:', data.surprise);
+  row('R. Biggest disappointment:', data.disappointment);
+  row('S. First GP win:', data.firstWin);
+  row('T. Unluckiest driver:', data.unlucky);
+  y += 2;
+
+  // ── U–V: Pills ──
+  sectionHead('U–V', 'Driver Watch');
+  doc.setFont('helvetica','normal');
+  doc.setFontSize(7.5);
+  doc.setTextColor(...MID);
+  doc.text('U. Lindblad (Rookie):', ML + 2, y); y += 5;
+  pill(data.rookieWatch);
+  doc.text('V. Hamilton at Ferrari:', ML + 2, y); y += 5;
+  pill(data.hamiltonFerrari);
+  y += 2;
+
+  // ── W–Z ──
+  sectionHead('W–Z', 'Bold Calls');
+  row('W. Higher-placed new team:', data.newTeams + (data.newTeamFinish !== '—' ? ' · Best: ' + data.newTeamFinish : ''));
+  row('X. Best race:', data.bestRace);
+  row('X. Worst race:', data.worstRace);
+  row('Y. 2027 silly season call:', data.silly);
+
+  checkY(12);
+  doc.setFont('helvetica','normal');
+  doc.setFontSize(7.5);
+  doc.setTextColor(...MID);
+  doc.text('Z. Boldest Prediction:', ML + 2, y);
+  y += 5;
+  doc.setFont('helvetica','bold');
+  doc.setFontSize(8);
+  doc.setTextColor(...DARK);
+  const boldLines = doc.splitTextToSize(data.bold, colW - 6);
+  boldLines.forEach(line => { checkY(5); doc.text(line, ML + 4, y); y += 5; });
+
+  // Footer on all pages
+  const totalPages = doc.internal.getNumberOfPages();
+  for (let i = 1; i <= totalPages; i++) {
+    doc.setPage(i);
+    doc.setDrawColor(...RED);
+    doc.setLineWidth(0.4);
+    doc.line(ML, H - 10, W - MR, H - 10);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(6.5);
+    doc.setTextColor(...MID);
+    doc.text(`${data.name} · 2026 F1 Predictions · DO NOT OPEN UNTIL ABU DHABI`, ML, H - 6);
+    doc.text(`Page ${i} of ${totalPages}`, W - MR, H - 6, { align: 'right' });
+  }
+
+  const safeName = data.name.replace(/[^a-zA-Z0-9]/g,'_') || 'Member';
+  doc.save(`2026_F1_Predictions_${safeName}.pdf`);
+}
+
+function resetForm() {
+  document.getElementById('modalBg').classList.remove('show');
+  // reload page
+  window.location.reload();
+}
+
+// ─── INIT ────────────────────────────────────────────────────────────────────
+buildTeammates();
+buildConstructors();
+buildDriverOrder();
+populateSelects();
+initPills();
+updateProgress();
 </script>
 </body>
 </html>
